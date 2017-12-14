@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- edited with XMLSpy v2011 rel. 2 (http://www.altova.com) by TeaM DJiNN (TeaM DJiNN) --><xsd:schema elementFormDefault="qualified" targetNamespace="urn:imb:gbo:v2" version="2.0" xmlns:gbo="urn:imb:gbo:v2" xmlns:st="urn:imb:gbo:v2:st" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:import namespace="urn:imb:gbo:v2:st" schemaLocation="st/SimpleTypes.xsd"/>
+    <xsd:complexType name="AccountListQuery">
+		<xsd:annotation>
+			<xsd:documentation>Запрос списка счетов клиента</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" name="AccountQuery">
+				<xsd:complexType>
+					<xsd:choice>
+						<xsd:sequence>
+							<xsd:element minOccurs="1" name="CustomerNo" type="st:CustomerNo">
+								<xsd:annotation>
+									<xsd:documentation>Номер клиента, 8 знаков [CUSTNO]</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element maxOccurs="unbounded" minOccurs="0" name="AccountSpecials" type="st:AccountSpecial">
+								<xsd:annotation>
+									<xsd:documentation>... [ACCOUNT_CLASSES/ACCOUNT_SPECIAL]</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:element minOccurs="1" name="CustomerNo" type="st:CustomerNo">
+								<xsd:annotation>
+									<xsd:documentation>Номер клиента, 8 знаков [CUSTNO]</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element maxOccurs="unbounded" minOccurs="0" name="AccountingType" type="st:AccType"/>
+						</xsd:sequence>
+						<xsd:element minOccurs="1" name="AccountNumber" type="st:IMBAccountNo"/>
+					</xsd:choice>
+				</xsd:complexType>
+			</xsd:element>
+            <xsd:element minOccurs="0" name="DefineHostOnly" type="st:Flag">
+        <xsd:annotation>
+          <xsd:documentation source="WMQI_DOCUMENTATION">Информацию необходимо получить только их мастер-системы</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+        </xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

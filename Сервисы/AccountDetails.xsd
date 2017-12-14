@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema elementFormDefault="qualified" targetNamespace="urn:imb:gbo:v2" version="2.0" xmlns:gbo="urn:imb:gbo:v2" xmlns:st="urn:imb:gbo:v2:st" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:import namespace="urn:imb:gbo:v2:st" schemaLocation="st/SimpleTypes.xsd"/>
+	<xsd:complexType name="AccountDetails">
+		<xsd:annotation>
+			<xsd:documentation>Информация о счете</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AccountNo" type="st:AccountNo">
+				<xsd:annotation>
+					<xsd:documentation>Indicates the Account created in Flexcube [ACC]</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Branch" type="st:BranchCode">
+				<xsd:annotation>
+					<xsd:documentation>Indicates the Flexcube Branch where the Account has been created [BRN]</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="CBAccountNo" type="st:CBAccountNo"/>
+			<xsd:element minOccurs="0" name="Ccy" type="st:CcyCode">
+				<xsd:annotation>
+					<xsd:documentation>Indicates the Currency for the Account [CCY]</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="CcyDigital" type="st:CcyCode"/>
+			<xsd:element minOccurs="0" name="Description" type="st:AccountDescription">
+				<xsd:annotation>
+					<xsd:documentation>Specifies a description for the Account [ADESC]</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="Status" type="st:AccountStatus">
+				<xsd:annotation>
+					<xsd:documentation>Indicates the Status of the Account [ACCSTAT]. Possible values are 'O' (Open), 'C' (Close)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="CustomerNo" type="st:CustomerNo">
+				<xsd:annotation>
+					<xsd:documentation>Indicates the CIF ID for which the Account was opened [CUSTNO]</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="Special" type="st:AccountSpecial">
+				<xsd:annotation>
+					<xsd:documentation>Indicates the Account Class to which the Customer Account record belongs to [ACCLS]</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="OpenDate" type="st:Date">
+				<xsd:annotation>
+					<xsd:documentation>Specifies the date on which the Customer Account was opened [ACCOPENDT]</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DealId" type="st:DealNumber" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="DealSourceId" type="st:DealSource" minOccurs="0" maxOccurs="1"/>		
+			<xsd:element name="SubDealId" type="st:SubdealNumber" minOccurs="0" maxOccurs="1"/>			
+			<xsd:element name="CloseDate" type="st:Date" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="AccountSequence" type="st:AccountSeqNum" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="AccountingType" type="st:AccType" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- edited with XMLSpy v2011 rel. 2 (http://www.altova.com) by TeaM DJiNN (TeaM DJiNN) --><xsd:schema elementFormDefault="qualified" targetNamespace="urn:imb:gbo:v2" version="2.0" xmlns:gbo="urn:imb:gbo:v2" xmlns:st="urn:imb:gbo:v2:st" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:import namespace="urn:imb:gbo:v2:st" schemaLocation="st/SimpleTypes.xsd"/>
+	<xsd:include schemaLocation="AccountDetails.xsd"/>
+	<xsd:complexType name="AccountList">
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="AccountDetails" type="gbo:AccountDetails"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

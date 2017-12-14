@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema elementFormDefault="qualified" targetNamespace="urn:ucbru:gbo:v4" xmlns:gbo="urn:ucbru:gbo:v4" xmlns:st="urn:ucbru:gbo:v4:st" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:import namespace="urn:ucbru:gbo:v4:st" schemaLocation="st/SimpleTypes.xsd"/>
+    <xsd:complexType name="BlockReference">
+        <xsd:annotation>
+      <xsd:documentation source="WMQI_DOCUMENTATION">Идентификатор\sблокировки</xsd:documentation>
+    </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="SystemCode" type="st:SystemCode">
+        <xsd:annotation>
+          <xsd:documentation source="WMQI_DOCUMENTATION">Код\sсистемы</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element name="BlockId" type="st:BlockId">
+        <xsd:annotation>
+          <xsd:documentation source="WMQI_DOCUMENTATION">Идентификатор</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

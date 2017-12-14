@@ -1,0 +1,41 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soapenv:Header>
+        <ns6:UCBRUHeaders xmlns:ns6="urn:ucbru:gbo:v4" xmlns:ns5="urn:ucbru:gbo:v4:casa">
+            <ns6:Correlation>
+                <ns6:XRef>a619a8ba-f324-4163-bff0-fd9745600395</ns6:XRef>
+            </ns6:Correlation>
+            <ns6:Audit>
+                <ns6:MessagePath>
+                    <ns6:Step>
+                        <ns6:Application.Module>PAYMENT_HUB</ns6:Application.Module>
+                        <ns6:TimeStamp>2015-11-26T11:59:03.644Z</ns6:TimeStamp>
+                    </ns6:Step>
+                </ns6:MessagePath>
+                <ns6:ProcessInfo>
+                    <ns6:Name>PAYMENT_HUB</ns6:Name>
+                    <ns6:InstanceId>123-123-166-8797</ns6:InstanceId>
+                </ns6:ProcessInfo>
+            </ns6:Audit>
+        </ns6:UCBRUHeaders>
+    </soapenv:Header>
+    <soapenv:Body>
+        <SCASABlockAmountPreBlockCreate xmlns="urn:ucbru:gbo:v4:casa" xmlns:ns2="urn:ucbru:gbo:v4">
+            <Block>
+                <RequestNumber>1</RequestNumber>
+                <BlockReference>
+                    <SystemCode>FlexteraPH</SystemCode>
+                    <BlockId>777007</BlockId>
+                </BlockReference>
+                <CBAccount>40702810700010003896</CBAccount>
+                <BlockAmount>777.77</BlockAmount>
+                <ObjectReference>88000</ObjectReference>
+                <ExtModule>PHub1</ExtModule>
+                <ExtOperationCode>PAY</ExtOperationCode>
+                <Priority>5</Priority>
+                <OperationTimestamp>2016-01-18T03:43:59Z</OperationTimestamp>
+                <Narrative>test</Narrative>
+                <UseOverdraft>true</UseOverdraft>
+            </Block>
+        </SCASABlockAmountPreBlockCreate>
+    </soapenv:Body>
+</soapenv:Envelope>

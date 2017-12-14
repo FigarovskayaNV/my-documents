@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:casa="urn:ucbru:gbo:v4:casa" xmlns:st="urn:ucbru:gbo:v4:st" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:ucbru:gbo:v4:casa" elementFormDefault="qualified" attributeFormDefault="qualified">
+	<xsd:import namespace="urn:ucbru:gbo:v4:st" schemaLocation="st/SimpleTypes.xsd"/>
+	<xsd:complexType name="SCASAMovementCreate">
+		<xsd:sequence>
+			<xsd:element name="Movement" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence minOccurs="1" maxOccurs="1">
+						<xsd:element name="RequestNumber" type="xsd:int"/>
+						<xsd:element name="BlockReference" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence minOccurs="1" maxOccurs="1">
+									<xsd:element name="SystemCode" type="st:SystemCode"/>
+									<xsd:element name="BlockID" type="st:BlockId"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="MovementReference">
+							<xsd:complexType>
+								<xsd:sequence minOccurs="1" maxOccurs="1">
+									<xsd:element name="SystemCode" type="st:SystemCode"/>
+									<xsd:element name="MovementID" type="st:MovementId"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="CBAccount" type="st:CBAccountNo"/>
+						<xsd:element name="MovementAmount">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:decimal">
+									<xsd:totalDigits value="23"/>
+									<xsd:fractionDigits value="3"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ObjectReference" type="st:ObjectReference" minOccurs="0"/>
+						<xsd:element name="ExtModule" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="32"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ExtOperationCode" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="32"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="Priority">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="4"/>
+									<xsd:enumeration value="5"/>
+									<xsd:enumeration value="5.1"/>
+									<xsd:enumeration value="5.22"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="OperationTimestamp" type="st:DateTime"/>
+						<xsd:element name="DrCr">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="1"/>
+									<xsd:enumeration value="D"/>
+									<xsd:enumeration value="C"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="Narrative" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="UseOverdraft" type="xsd:boolean" minOccurs="0"/>
+						<xsd:element name="IgnoreBalance" type="xsd:boolean" minOccurs="0"/>
+						<xsd:element name="IgnoreBlockFlag" type="xsd:boolean" minOccurs="0"/>
+						<xsd:element name="UseFAFO" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="ValueDate" type="st:Date" minOccurs="0"/>
+						<xsd:element name="PrimeBlockID" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="Storno" type="xsd:boolean" minOccurs="0"/>
+						<xsd:element name="ABSSpecificParameters" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence minOccurs="1" maxOccurs="1">
+									<xsd:element name="MIDASSpecificParameters" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence minOccurs="1" maxOccurs="1">
+												<xsd:element name="SPOS">
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="7"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="OTRF">
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="15"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="Department">
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="3"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="ProfitCenter">
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="4"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="BookCode">
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="2"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="PostingTrnTyp">
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="5"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="PostingNarrative">
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="30"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="ProjectTrnTyp">
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="2"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="ProjectTrnNbr">
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="6"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="ProjectNarrative">
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="30"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
